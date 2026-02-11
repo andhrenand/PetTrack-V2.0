@@ -60,7 +60,7 @@ class ShopHomeView extends GetView<ShopHomeController> {
             title: 'Dog Food Premium',
             description: 'Makanan sehat untuk anjing dewasa',
             price: 85000,
-            onPressed: () {},
+            onPressed: () {Get.toNamed(Routes.PRODUCT_DETAIL);},
             showAddIcon: true,
             onAddPressed: () {},
           ),

@@ -7,6 +7,7 @@ import 'package:pet_track/utils/theme/app_theme.dart';
 
 class BottomNavbarView extends GetView<BottomNavbarController> {
   const BottomNavbarView({super.key});
+  
 
   @override
   Widget build(BuildContext context) {

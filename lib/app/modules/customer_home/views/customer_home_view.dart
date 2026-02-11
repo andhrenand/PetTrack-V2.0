@@ -11,6 +11,8 @@ import 'package:pet_track/utils/theme/app_theme.dart';
 class CustomerHomeView extends GetView<CustomerHomeController> {
   const CustomerHomeView({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

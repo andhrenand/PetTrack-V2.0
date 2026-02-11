@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:pet_track/app/modules/pet_add/bindings/pet_add_binding.dart';
 
 import '../../utils/widgets/splash_screen.dart';
 import '../modules/add_medical_record/bindings/add_medical_record_binding.dart';
@@ -10,8 +9,6 @@ import '../modules/chat_room/bindings/chat_room_binding.dart';
 import '../modules/chat_room/views/chat_room_view.dart';
 import '../modules/customer_home/bindings/customer_home_binding.dart';
 import '../modules/customer_home/views/customer_home_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
 import '../modules/features/medical/medical_add/bindings/medical_add_binding.dart';
 import '../modules/features/medical/medical_add/views/medical_add_view.dart';
 import '../modules/features/medical/medical_history/bindings/medical_history_binding.dart';
@@ -20,12 +17,7 @@ import '../modules/features/medical/medical_home/bindings/medical_home_binding.d
 import '../modules/features/medical/medical_home/views/medical_home_view.dart';
 import '../modules/features/medical/medication_reminder/bindings/medication_reminder_binding.dart';
 import '../modules/features/medical/medication_reminder/views/medication_reminder_view.dart';
-import '../modules/onboarding_screen/bindings/onboarding_screen_binding.dart';
-import '../modules/onboarding_screen/views/onboarding_screen_view.dart';
-import '../modules/features/shop/payment/bindings/payment_binding.dart';
-import '../modules/features/shop/payment/views/payment_view.dart';
-import '../modules/pet_activity/bindings/pet_activity_binding.dart';
-import '../modules/pet_activity/views/pet_activity_view.dart';
+import '../modules/features/pets/pet_add/bindings/pet_add_binding.dart';
 import '../modules/features/pets/pet_add/views/pet_add_view.dart';
 import '../modules/features/pets/pet_care/bindings/pet_care_binding.dart';
 import '../modules/features/pets/pet_care/views/pet_care_view.dart';
@@ -35,6 +27,16 @@ import '../modules/features/pets/pet_home/bindings/pet_home_binding.dart';
 import '../modules/features/pets/pet_home/views/pet_home_view.dart';
 import '../modules/features/pets/pet_list/bindings/pet_list_binding.dart';
 import '../modules/features/pets/pet_list/views/pet_list_view.dart';
+import '../modules/features/shop/payment/bindings/payment_binding.dart';
+import '../modules/features/shop/payment/views/payment_view.dart';
+import '../modules/features/shop/shop_home/bindings/shop_home_binding.dart';
+import '../modules/features/shop/shop_home/views/shop_home_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/onboarding_screen/bindings/onboarding_screen_binding.dart';
+import '../modules/onboarding_screen/views/onboarding_screen_view.dart';
+import '../modules/pet_activity/bindings/pet_activity_binding.dart';
+import '../modules/pet_activity/views/pet_activity_view.dart';
 import '../modules/product_detail/bindings/product_detail_binding.dart';
 import '../modules/product_detail/views/product_detail_view.dart';
 import '../modules/product_list/bindings/product_list_binding.dart';
@@ -46,16 +48,16 @@ import '../modules/service_detail/bindings/service_detail_binding.dart';
 import '../modules/service_detail/views/service_detail_view.dart';
 import '../modules/service_list/bindings/service_list_binding.dart';
 import '../modules/service_list/views/service_list_view.dart';
-import '../modules/features/shop/shop_home/bindings/shop_home_binding.dart';
-import '../modules/features/shop/shop_home/views/shop_home_view.dart';
 import '../modules/sign_in/bindings/sign_in_binding.dart';
 import '../modules/sign_in/views/sign_in_view.dart';
 import '../modules/sign_up/bindings/sign_up_binding.dart';
 import '../modules/sign_up/views/sign_up_view.dart';
 import '../modules/stock/bindings/stock_binding.dart';
 import '../modules/stock/views/stock_view.dart';
-import '../modules/vaccine_tracker/bindings/vaccine_tracker_binding.dart';
-import '../modules/vaccine_tracker/views/vaccine_tracker_view.dart';
+import '../modules/features/shop/transaction_history/bindings/transaction_history_binding.dart';
+import '../modules/features/shop/transaction_history/views/transaction_history_view.dart';
+import '../modules/features/pets/vaccine_tracker/bindings/vaccine_tracker_binding.dart';
+import '../modules/features/pets/vaccine_tracker/views/vaccine_tracker_view.dart';
 
 part 'app_routes.dart';
 
@@ -199,6 +201,11 @@ class AppPages {
       name: _Paths.PET_HOME,
       page: () => const PetHomeView(),
       binding: PetHomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRANSACTION_HISTORY,
+      page: () => const TransactionHistoryView(),
+      binding: TransactionHistoryBinding(),
     ),
   ];
 }

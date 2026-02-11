@@ -59,11 +59,15 @@ class SignUpView extends GetView<SignUpController> {
               SizedBox(height: 30),
 
               Center(
-                child: PrimaryButton(
-                  title: "SIGN UP",
-                  onPressed: () {
-                    Get.offAllNamed(Routes.BOTTOM_NAVBAR);
-                  },
+                child: Obx(
+                  () => PrimaryButton(
+                    title: controller.isLoading.value
+                        ? "SIGNING UP..."
+                        : "SIGN UP",
+                    onPressed: controller.isLoading.value
+                        ? () {}
+                        : controller.register,
+                  ),
                 ),
               ),
               SizedBox(height: 24),
@@ -88,6 +92,32 @@ class SignUpView extends GetView<SignUpController> {
                 title: "Apple",
                 icon: 'assets/pictures/apple-logo.png',
                 onPressed: () {},
+              ),
+              SizedBox(height: 28),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Already have an account?",
+                      style: TextStyle(
+                        fontSize: 12.sp,
+                        color: AppColors.textMuted,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => Get.offNamed(Routes.SIGN_IN),
+                      child: Text(
+                        "Sign In",
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.ink,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

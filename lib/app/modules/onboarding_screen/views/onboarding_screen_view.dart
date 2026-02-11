@@ -18,7 +18,7 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/pictures/BackgroundOnboarding.png'),
-            fit: BoxFit.cover, // 👈 WAJIB biar full screen
+            fit: BoxFit.cover,
           ),
         ),
         child: SafeArea(
@@ -70,7 +70,7 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                       PrimaryButton(
                         title: "Let's Get Started !",
                         onPressed: () {
-                          Get.toNamed(Routes.SIGN_UP);
+                          Get.toNamed(Routes.SIGN_IN);
                         },
                       ),
                     ],

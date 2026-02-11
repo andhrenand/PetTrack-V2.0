@@ -50,11 +50,14 @@ class SignInView extends GetView<SignInController> {
               ),
               SizedBox(height: 30.h),
               Center(
-                child: PrimaryButton(
-                  title: "SIGN IN",
-                  onPressed: () {
-                    Get.offAllNamed(Routes.BOTTOM_NAVBAR);
-                  },
+                child: Obx(
+                  () => PrimaryButton(
+                    title: controller.isLoading.value
+                        ? "SIGNING IN..."
+                        : "SIGN IN",
+                    onPressed:
+                        controller.isLoading.value ? () {} : controller.login,
+                  ),
                 ),
               ),
               SizedBox(height: 24.h),

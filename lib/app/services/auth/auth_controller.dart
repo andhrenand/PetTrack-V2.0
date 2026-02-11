@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_track/app/routes/app_pages.dart';
 import 'package:pet_track/app/services/auth/auth_services.dart';
 
-class SignInController extends GetxController {
+class AuthController extends GetxController {
   final AuthService _authService = Get.find();
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final isLoading = false.obs;
+
+  var isLoading = false.obs;
 
   Future<void> login() async {
-    if (isLoading.value) {
-      return;
-    }
     isLoading.value = true;
 
     final user = await _authService.login(
@@ -23,14 +21,22 @@ class SignInController extends GetxController {
     isLoading.value = false;
 
     if (user != null) {
-      Get.offAllNamed(Routes.BOTTOM_NAVBAR);
+      Get.offAllNamed('/home');
     }
   }
 
-  @override
-  void onClose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.onClose();
+  Future<void> register() async {
+    isLoading.value = true;
+
+    final user = await _authService.register(
+      emailController.text.trim(),
+      passwordController.text.trim(),
+    );
+
+    isLoading.value = false;
+
+    if (user != null) {
+      Get.offAllNamed('/home');
+    }
   }
 }

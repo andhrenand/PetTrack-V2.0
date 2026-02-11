@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pet_track/app/routes/app_pages.dart';
 import 'package:pet_track/utils/theme/app_theme.dart';
 
 import '../controllers/profile_controller.dart';
@@ -10,9 +12,7 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-      ),
+      appBar: AppBar(title: const Text('Profile')),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
@@ -62,25 +62,22 @@ class ProfileView extends GetView<ProfileController> {
             ),
           ),
           SizedBox(height: 20.h),
-          _ProfileTile(
-            icon: Icons.pets,
-            title: "My Pets",
-            onTap: () {},
-          ),
+
           _ProfileTile(
             icon: Icons.receipt_long,
             title: "Transactions",
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.TRANSACTION_HISTORY);
+            },
           ),
-          _ProfileTile(
-            icon: Icons.settings,
-            title: "Settings",
-            onTap: () {},
-          ),
+          _ProfileTile(icon: Icons.settings, title: "Settings", onTap: () {}),
           _ProfileTile(
             icon: Icons.logout,
             title: "Logout",
-            onTap: () {},
+            onTap: () async {
+              await FirebaseAuth.instance.signOut();
+              Get.offAllNamed(Routes.SIGN_IN);
+            },
           ),
         ],
       ),
@@ -110,12 +107,7 @@ class _ProfileTile extends StatelessWidget {
       ),
       child: ListTile(
         leading: Icon(icon, color: AppColors.ink),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
         trailing: const Icon(Icons.chevron_right, color: AppColors.textMuted),
         onTap: onTap,
       ),

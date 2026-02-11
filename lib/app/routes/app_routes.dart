@@ -35,6 +35,7 @@ abstract class Routes {
   static const PET_CARE = _Paths.PET_CARE;
   static const PAYMENT = _Paths.PAYMENT;
   static const PET_HOME = _Paths.PET_HOME;
+  static const TRANSACTION_HISTORY = _Paths.TRANSACTION_HISTORY;
 }
 
 abstract class _Paths {
@@ -71,4 +72,5 @@ abstract class _Paths {
   static const PET_CARE = '/pet-care';
   static const PAYMENT = '/payment';
   static const PET_HOME = '/pet-home';
+  static const TRANSACTION_HISTORY = '/transaction-history';
 }
